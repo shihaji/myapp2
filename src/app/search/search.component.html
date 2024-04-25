@@ -1,0 +1,30 @@
+<p>search works!</p>
+
+<input type="text" [(ngModel)]="id" class="form-control">
+<button (click)="search()" class="btn btn-primary"> search</button>
+
+
+
+
+<div *ngIf="emp.id else ms">
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+
+    </tr>
+
+    <tr>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.salary}}</td>
+
+    </tr>
+</table>
+
+</div>
+
+<ng-template #ms>
+    <h6 class="text text-danger">{{msg}}</h6>
+</ng-template>

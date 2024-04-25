@@ -1,0 +1,14 @@
+<h5 class="text text-info">Display Page!</h5>
+
+<table class="table table-bordered">
+<tr><th>Id</th><th>Name</th><th>Salary</th></tr>
+<tr *ngFor="let e of emp$">
+
+<td>{{e.id}}</td>
+<td>{{e.name}}</td>
+<td>{{e.salary}}</td>
+<td><a routerLink="/delete/{{e.id}}" class="text text-danger">Delete</a></td>
+
+</tr>
+
+</table>

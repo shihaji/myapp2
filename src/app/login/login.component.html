@@ -1,0 +1,9 @@
+<h4 class="text text-info">Login Page</h4>
+
+name:<input type="text" [(ngModel)]="name" class="form-control">
+password:<input type="password" [(ngModel)]="password" class="form-control">
+
+<input type="button" class="btn btn-primary" (click)="login()" value="login">
+
+
+<h6 class="text text-danger">{{msg}}</h6>

@@ -1,0 +1,14 @@
+<h4 class="text text-info">home page!</h4>
+
+<div *ngIf="flag"  class="spinner-border text-primary" role="status">
+    <span class="sr-only"></span>
+  </div>
+<br>
+<a routerLink="regi" style="margin-right: 20px;">Register Employee</a>
+<a routerLink="search" style="margin-right: 20px;">Search Employee</a>
+<a routerLink="displayAll" style="margin-right: 20px;">List all Employee</a>
+<a routerLink="delete" style="margin-right: 20px;">Delete Employee</a>
+<a routerLink="admin" style="margin-right: 20px;">Admin</a>
+
+
+<router-outlet></router-outlet>

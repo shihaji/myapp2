@@ -1,0 +1,9 @@
+<h5 class="text text-info">Register Form!</h5>
+
+id:<input type="text" class="form-control" [(ngModel)]="id">
+name:<input type="text" class="form-control" [(ngModel)]="name">
+salary:<input type="text" class="form-control" [(ngModel)]="salary">
+
+<input type="button" (click)="register()" value="register" class="btn btn-primary">
+
+<h5 class="text text-success">{{this.msg}}</h5>

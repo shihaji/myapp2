@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myapp2';
+
+  st={color:'orange',fontSize:'30px'};
+
 }
