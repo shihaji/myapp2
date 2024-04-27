@@ -1,9 +1,30 @@
 <h4 class="text text-info">Login Page</h4>
 
-name:<input type="text" [(ngModel)]="name" class="form-control">
-password:<input type="password" [(ngModel)]="password" class="form-control">
+<form #loginForm="ngForm" (ngSubmit)="login1(loginForm)">
+<span class="text text-danger" *ngIf="name.errors?.['required']">
+        *
+</span>
+name:<input type="text" appNamevalidator pattern="[a-z \\s]*" required minlength="3" name="name" ngModel #name="ngModel" class="form-control">
 
-<input type="button" class="btn btn-primary" (click)="login()" value="login">
+<div class="text text-danger" *ngIf=" name.touched && name.errors?.['required']">
+    name is mandatory
+</div>
+<div class="text text-danger" *ngIf=" name.touched && name.errors?.['minlength']">
+    minimum 3 letters
+</div>
+<div class="text text-danger" *ngIf=" name.touched && name.errors?.['pattern']">
+    Only alphabets allowed
+</div>
+<div class="text text-danger" *ngIf=" name.touched && name.errors?.['spaceError']">
+    No Space Allowed
+</div>
 
+password:<input type="password" name="password" ngModel class="form-control">
+
+<input type="submit"  class="btn btn-primary" value="login">
+
+</form>
 
 <h6 class="text text-danger">{{msg}}</h6>
+
+

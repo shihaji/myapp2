@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../model/user';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,15 @@ export class LoginComponent {
   userService=inject(UserService);
 
   msg="";
+  flag=false;
+
+  login1(fm:NgForm){
+
+    let user=new User(fm.form.value.name,fm.form.value.password);
+     
+    console.log(fm);
+
+  }
 
   login(){
 

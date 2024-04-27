@@ -17,6 +17,7 @@ import { PayrollComponent } from './payroll/payroll.component';
 import { LeavesComponent } from './leaves/leaves.component';
 import { AppdirDirective } from './appdir.directive';
 import { MydirDirective } from './mydir.directive';
+import { NamevalidatorDirective } from './namevalidator.directive';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MydirDirective } from './mydir.directive';
     PayrollComponent,
     LeavesComponent,
     AppdirDirective,
-    MydirDirective
+    MydirDirective,
+    NamevalidatorDirective
   ],
   imports: [
     BrowserModule,
