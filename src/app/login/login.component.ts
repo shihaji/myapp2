@@ -11,9 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
 
-  name:string="";
-  password:string="";
-
+  
   router=inject(Router);
 
   userService=inject(UserService);
@@ -24,24 +22,20 @@ export class LoginComponent {
   login1(fm:NgForm){
 
     let user=new User(fm.form.value.name,fm.form.value.password);
-     
-    console.log(fm);
+    
+    this.userService.authenticate(user)
+    .subscribe({
+      next:data=>{
+        this.userService.setFlag(true);
+        this.userService.setName(fm.form.value.name);
+        this.router.navigateByUrl("home")
+      },
+      error:er=>this.msg=er,
+      complete:()=>console.log("completed")
+     })
+    
 
   }
 
-  login(){
-
-   this.userService.authenticate(new User(this.name,this.password))
-  .subscribe({
-    next:data=>{
-      this.userService.setFlag(true);
-      this.userService.setName(this.name);
-      this.router.navigateByUrl("home")
-    },
-    error:er=>this.msg=er,
-    complete:()=>console.log("completed")
-   })
-
-  }
-
+  
 }

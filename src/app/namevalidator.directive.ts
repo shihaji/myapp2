@@ -17,6 +17,10 @@ export class NamevalidatorDirective implements Validator{
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
     let name:string=control.value;
 
+    if(name==undefined){
+      return null;
+    }
+
     if(name.indexOf(" ")==-1)
 
     return null;
