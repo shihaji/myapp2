@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import employeeUtil from '../employeeUtil';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../model/employee';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,15 @@ export class RegisterComponent {
 
   empService=inject(EmployeeService);
   msg="";
+
+  regForm:FormGroup=new FormGroup({
+    id:new FormControl(""),
+    name:new FormControl(""),
+    salary:new FormControl("")
+    
+  })
+
+
 
   unsavedForm():boolean{
 
