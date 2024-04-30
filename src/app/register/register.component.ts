@@ -32,7 +32,7 @@ export class RegisterComponent {
 
     console.log(`${this.id}  ${this.name}  ${this.salary}`)
 
-    if(this.id>=0 || this.name.length>0 || this.salary>0){
+    if(this.regForm.value.id>=0 || this.regForm.value.name.length>0 || this.regForm.value.salary>0){
       return confirm("You have unsaved data")
     }else{
       return true;
@@ -42,7 +42,10 @@ export class RegisterComponent {
 
   register(){
 
-    this.empService.registerEmp(new Employee(this.id,this.name,this.salary))
+    let emp=new Employee
+    (this.regForm.value.id,this.regForm.value.name,this.regForm.value.salary)
+
+    this.empService.registerEmp(emp)
     .subscribe({
       next:data=>this.msg=data.status,
       error:err=>this.msg=err.error.status,
