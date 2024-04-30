@@ -36,5 +36,9 @@ export class UserService {
 
   }
 
+  checkUserName(name:string):Observable<{count:number}>{
+   return  this.httpClient.get<{count:number}>(`http://localhost:5001/checkName/${name}`,{responseType:'json'});
+  }
+
 
 }

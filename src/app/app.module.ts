@@ -18,6 +18,7 @@ import { LeavesComponent } from './leaves/leaves.component';
 import { AppdirDirective } from './appdir.directive';
 import { MydirDirective } from './mydir.directive';
 import { NamevalidatorDirective } from './namevalidator.directive';
+import { NameCheckDirective } from './name-check.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NamevalidatorDirective } from './namevalidator.directive';
     LeavesComponent,
     AppdirDirective,
     MydirDirective,
-    NamevalidatorDirective
+    NamevalidatorDirective,
+    NameCheckDirective
   ],
   imports: [
     BrowserModule,

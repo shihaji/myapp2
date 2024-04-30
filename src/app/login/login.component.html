@@ -4,7 +4,7 @@
 <span class="text text-danger" *ngIf="name.errors?.['required']">
         *
 </span>
-name:<input type="text" appNamevalidator pattern="[a-z \\s]*" required minlength="3" name="name" ngModel #name="ngModel" class="form-control">
+name:<input type="text" nameCheck appNamevalidator pattern="[a-z \\s]*" required minlength="3" name="name" ngModel #name="ngModel" class="form-control">
 
 <div class="text text-danger" *ngIf=" name.touched && name.errors?.['required']">
     name is mandatory
@@ -17,6 +17,10 @@ name:<input type="text" appNamevalidator pattern="[a-z \\s]*" required minlength
 </div>
 <div class="text text-danger" *ngIf=" name.touched && name.errors?.['spaceError']">
     No Space Allowed
+</div>
+
+<div class="text text-danger" *ngIf=" name.touched && name.errors?.['nameError']">
+    User already exists
 </div>
 
 password:<input type="password" name="password" ngModel class="form-control">
