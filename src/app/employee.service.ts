@@ -41,5 +41,10 @@ export class EmployeeService {
 
   }
 
+  checkId(id:number):Observable<{count:number}>{
+
+    return this.httpClient.get<{count:number}>(`http://localhost:5001/checkId/${id}`,{responseType:'json'});
+  }
+
 
 }

@@ -1,8 +1,30 @@
 <h5 class="text text-info">Register Form!</h5>
 
 <form [formGroup]="regForm" (ngSubmit)="register()">
-id:<input type="text" class="form-control" formControlName="id">
+id:<input type="text"  class="form-control" formControlName="id">
+<div class="text text-danger" *ngIf="regForm.get('id')?.touched && regForm.get('id')?.errors?.['required']">
+    id is mandatory
+</div>
+<div class="text text-danger" *ngIf="regForm.get('id')?.touched && regForm.get('id')?.errors?.['min']">
+    min is 1
+</div>
+
+
+
+<div class="text text-danger" *ngIf="regForm.get('id')?.touched && regForm.get('id')?.errors?.['idError']">
+    id already exists
+</div>
+
 name:<input type="text" class="form-control" formControlName="name">
+
+<div class="text text-danger" *ngIf="regForm.get('name')?.touched && regForm.get('name')?.errors?.['required']">
+    name is mandatory
+</div>
+<div class="text text-danger" *ngIf="regForm.get('name')?.touched && regForm.get('name')?.errors?.['spaceError']">
+    no space allowed
+</div>
+
+
 salary:<input type="text" class="form-control" formControlName="salary">
 
 <input type="submit"  value="register" class="btn btn-primary">

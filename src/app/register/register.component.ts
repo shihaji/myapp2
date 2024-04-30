@@ -3,7 +3,9 @@ import { Component, inject } from '@angular/core';
 import employeeUtil from '../employeeUtil';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../model/employee';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { checkIdValidator } from '../checkIdValidator';
+import { nameSpaceAgain } from '../nameSpace';
 
 @Component({
   selector: 'app-register',
@@ -20,9 +22,9 @@ export class RegisterComponent {
   msg="";
 
   regForm:FormGroup=new FormGroup({
-    id:new FormControl(""),
-    name:new FormControl(""),
-    salary:new FormControl("")
+    id:new FormControl("",[Validators.required,Validators.min(1)],checkIdValidator(this.empService)),
+    name:new FormControl("",[Validators.required,nameSpaceAgain()]),
+    salary:new FormControl("",[Validators.required])
     
   })
 
@@ -30,7 +32,6 @@ export class RegisterComponent {
 
   unsavedForm():boolean{
 
-    console.log(`${this.id}  ${this.name}  ${this.salary}`)
 
     if(this.regForm.value.id>=0 || this.regForm.value.name.length>0 || this.regForm.value.salary>0){
       return confirm("You have unsaved data")
@@ -55,3 +56,7 @@ export class RegisterComponent {
   }
 
 }
+function namespace(): import("@angular/forms").ValidatorFn {
+  throw new Error('Function not implemented.');
+}
+
